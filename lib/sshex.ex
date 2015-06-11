@@ -46,7 +46,7 @@ defmodule SSHEx do
   defp open_channel(conn, channel_timeout) do
     res = :ssh_connection.session_channel(conn, channel_timeout)
     case res do
-      { :error, reason } -> raise reason
+      { :error, reason } -> raise inspect(reason)
       { :ok, channel } -> channel
     end
   end
